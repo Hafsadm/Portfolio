@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Hafsa Doumissi - Étudiante en Génie Logiciel à la recherche d'un stage">
+    <meta name="theme-color" content="#0a1628">
+    <title>Hafsa Doumissi - Portfolio | Génie Logiciel</title>
+    <link rel="stylesheet" href="styles.css">
+ <style>
+        /* ============================================
+           CSS VARIABLES & DESIGN TOKENS - PREMIUM MODERN
+           ============================================ */
+        :root {
+            --color-bg-dark: #120a16;
+            --color-bg-secondary: #201320;
+            --color-bg-tertiary: #412750;
+
+            --color-primary: #947f99;
+            --color-primary-dark: #19011f;
+            --color-primary-light: #8d24ad;
+
+            --color-text-primary: #f0f8ff;
+            --color-text-secondary: #a8bcc8;
+            --color-text-tertiary: #6b7a8a;
+
+            --color-accent: #b644ff;
+            --color-accent-light: #d8a8ff;
+            --color-border: rgba(0, 229, 255, 0.08);
+
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+
+            /* Typography */
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            --font-mono: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.5rem;
+            --font-size-2xl: 2rem;
+            --font-size-3xl: 2.5rem;
+            --font-size-4xl: 3.5rem;
+
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            --line-height-relaxed: 1.75;
+
+            --font-weight-regular: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(0, 229, 255, 0.1);
+            --shadow-md: 0 8px 24px rgba(0, 229, 255, 0.12);
+            --shadow-lg: 0 16px 40px rgba(0, 229, 255, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --font-size-xs: 0.65rem;
+                --font-size-sm: 0.75rem;
+                --font-size-base: 0.9rem;
+                --font-size-lg: 1rem;
+                --font-size-xl: 1.25rem;
+                --font-size-2xl: 1.5rem;
+                --font-size-3xl: 1.75rem;
+                --font-size-4xl: 2.25rem;
+                
+                --space-xs: 0.375rem;
+                --space-sm: 0.75rem;
+                --space-md: 1rem;
+                --space-lg: 1.5rem;
+                --space-xl: 2rem;
+                --space-2xl: 2.5rem;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text-primary);
+            line-height: var(--line-height-normal);
+            font-size: var(--font-size-base);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(18, 10, 22, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            padding: var(--space-md) var(--space-lg);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .navbar-logo {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 25px;
+            height: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--color-primary);
+            border-radius: 2px;
+            transition: all var(--transition-base);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--space-lg);
+            pointer-events: auto;
+        }
+
+        .nav-link {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            transition: color var(--transition-fast);
+        }
+
+        .nav-link:hover {
+            color: var(--color-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding-top: 100px;
+            padding-bottom: var(--space-2xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(148, 127, 153, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: 10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(184, 68, 255, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 20s ease-in-out infinite reverse;
+        }
+
+        .hero-wrapper {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2xl);
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-title {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-md);
+            line-height: var(--line-height-tight);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--color-primary);
+            margin-bottom: var(--space-xs);
+            font-weight: var(--font-weight-medium);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-meta {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-tertiary);
+            margin-bottom: var(--space-lg);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .hero-description {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-2xl);
+            line-height: var(--line-height-relaxed);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-photo {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: var(--radius-xl);
+            object-fit: cover;
+            filter: drop-shadow(0 20px 50px rgba(148, 127, 153, 0.3));
+            transition: all var(--transition-base);
+        }
+
+        .hero-photo:hover {
+            filter: drop-shadow(0 30px 60px rgba(148, 127, 153, 0.5));
+            transform: scale(1.02);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: var(--radius-lg);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            transition: all var(--transition-base);
+            cursor: pointer;
+            border: 2px solid transparent;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: var(--color-bg-dark);
+            box-shadow: 0 8px 20px rgba(148, 127, 153, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(148, 127, 153, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(148, 127, 153, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        .section {
+            padding: var(--space-2xl) var(--space-lg);
+            position: relative;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .section:nth-child(even) {
+            background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-dark) 100%);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-2xl);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(20px);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: var(--space-sm) var(--space-lg);
+            }
+
+            .navbar-container {
+                flex-wrap: wrap;
+                gap: var(--space-lg);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: rgba(18, 10, 22, 0.98);
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+                padding: var(--space-lg);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-link {
+                padding: var(--space-md) 0;
+                font-size: var(--font-size-base);
+            }
+
+            .hero {
+                padding-top: 140px;
+                min-height: auto;
+            }
+
+            .hero-wrapper {
+                flex-direction: column;
+                gap: var(--space-lg);
+            }
+
+            .hero-content {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .hero-image {
+                width: 100%;
+                min-height: 300px;
+                order: -1;
+            }
+
+            .hero-photo {
+                max-width: 100%;
+                max-height: 300px;
+            }
+
+            .hero-title {
+                font-size: var(--font-size-2xl);
+                margin-bottom: var(--space-sm);
+            }
+
+            .hero-description {
+                font-size: var(--font-size-base);
+                margin-bottom: var(--space-lg);
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 10px 20px;
+                font-size: var(--font-size-sm);
+            }
+
+            .section {
+                padding: var(--space-xl) var(--space-lg);
+            }
+
+            .section-title {
+                font-size: var(--font-size-2xl);
+                margin-bottom: var(--space-lg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">Hafsa Doumissi</a>
+            
+            <button class="hamburger" aria-label="Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" role="navigation">
+                <li><a href="#home" class="nav-link">Accueil</a></li>
+                <li><a href="#profil" class="nav-link">Profil</a></li>
+                <li><a href="#competences" class="nav-link">Compétences</a></li>
+                <li><a href="#projets" class="nav-link">Projets</a></li>
+                <li><a href="#experience" class="nav-link">Expérience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-wrapper">
+            <div class="hero-content">
+                <h1 class="hero-title">Hafsa Doumissi</h1>
+                <p class="hero-subtitle">Étudiante en Génie Logiciel</p>
+                <p class="hero-meta">ENSIASD | Lauréate de l'EST</p>
+                <p class="hero-description">
+Étudiante en Génie Logiciel, future ingénieure, passionnée par le développement logiciel et la conception de solutions informatiques. Actuellement à la recherche d'un stage obligatoire afin de renforcer mes compétences pratiques et approfondir mon expérience professionnelle.                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Me contacter</a>
+                    <a href="#projets" class="btn btn-secondary">Voir mes projets</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/Hafsa.jpg" alt="Hafsa Doumissi - Portrait professionnel" class="hero-photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Profil Section -->
+    <section id="profil" class="section section-profil">
+        <div class="container">
+            <h2 class="section-title">Profil</h2>
+            <div class="profil-content">
+                <p class="profil-text">
+                    Étudiante en première année Génie Logiciel à l'ENSIASD, avec une formation solide en Génie Informatique à l'EST.
+                     J'ai acquis une première expérience professionnelle et presentiel lors d'un stage de deux mois chez 
+                     <strong>Custplace</strong> et à travers la réalisation de projets académiques et applicatifs.
+                      Actuellement à la recherche d'un stage obligatoire ouvert dans le domaine du génie logiciel.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section section-about">
+        <div class="container">
+            <h2 class="section-title">À propos de moi</h2>
+            <div class="about-content">
+                <p>
+                    Mon parcours en informatique a commencé à l'EST où j'ai développé des bases solides en programmation et en systèmes informatiques. 
+                    Cette formation m'a permis d'intégrer l'ENSIASD en Génie Logiciel afin d'approfondir mes compétences en conception, développement et architecture logicielle.
+                </p>
+                <p>
+                    Curieuse, motivée et autonome, j'aime travailler sur des projets concrets, apprendre de nouvelles technologies et collaborer en équipe pour résoudre des problématiques réelles.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compétences Section -->
+    <section id="competences" class="section section-competences">
+        <div class="container">
+            <h2 class="section-title">Compétences</h2>
+            
+            <div class="skills-grid">
+                <!-- Langages -->
+                <div class="skill-card">
+                    <h3 class="skill-title">Langages</h3>
+                    <ul class="skill-list">
+                        <li>C  </li>
+                        <li>PHP</li>
+                        <li>Java</li>
+                        <li>JavaFx</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+
+                <!-- Développement & Concepts -->
+                <div class="skill-card">
+                    <h3 class="skill-title">Développement</h3>
+                    <ul class="skill-list">
+                        <li>Programmation orientée objet</li>
+                        <li>UML</li>
+                        <li>MVC</li>
+                        <li>Développement web</li>
+                    </ul>
+                </div>
+
+                <!-- Frameworks & Web -->
+                <div class="skill-card">
+                    <h3 class="skill-title">Web & Frameworks</h3>
+                    <ul class="skill-list">
+                        <li>HTML</li>
+                        <li>JavaScript</li>
+                        <li>CSS</li>
+                        <li>Tailwind </li>
+                        <li>Laravel</li>
+                        <li>Bootstrap</li>
+                       
+                    </ul>
+                </div>
+
+                <!-- Bases de données -->
+                <div class="skill-card">
+                    <h3 class="skill-title">Bases de données</h3>
+                    <ul class="skill-list">
+                        <li>MySQL</li>
+                        <li>Conception relationnelle</li>
+                        <li>Modélisation</li>
+                    </ul>
+                </div>
+
+                <!-- Outils -->
+                <div class="skill-card">
+                    <h3 class="skill-title">Outils</h3>
+                    <ul class="skill-list">
+                        <li>Docker</li>
+                        <li>GitHub</li>
+                        <li>Entreprise Architect</li>
+                        <li>VS Code</li>
+                        <li>Linux</li>
+                        <li>Laragon</li>
+                        <li>Eclipse</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets Section -->
+    <section id="projets" class="section section-projets">
+        <div class="container">
+            <h2 class="section-title">Projets</h2>
+            
+            <div class="projects-container">
+                <!-- Projet Principal -->
+
+                
+              
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title"> Domaine Limoune Site web</h3>
+                        <span class="project-badge">Satge d'initiation</span>
+                    </div>
+                    <p class="project-description">
+
+                        Lors de mon stage d’initiation, j’ai réalisé un site web destiné aux clients de l’hôtel Domaine Limoune.
+                        Cette application permet aux clients d’accéder au mot de passe du réseau Wi-Fi via un formulaire en ligne, après vérification de leur inscription à l’hôtel.
+                        L’objectif était de simplifier l’accès au Wi-Fi tout en assurant un contrôle sécurisé des utilisateurs.
+                                           
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Html</span>
+                        <span class="tech-tag">Css</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">UML</span>
+                    </div>
+
+
+                      <a href="https://github.com/Hafsadm/Domaine-Limoune.git" target="_blank" rel="noopener noreferrer" class="project-link">
+                        Voir sur GitHub
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M7 7h10v10"></path>
+                        </svg>
+                    </a>
+
+                </div>
+
+                <div class="project-card project-featured">
+                    <div class="project-header">
+                        <h3 class="project-title">Hanaya Applications des Biens Immobiliers</h3>
+                        <span class="project-badge">Projet de Fin d'Etude </span>
+                    </div>
+                    <p class="project-description">
+
+                        Hanaya Immobilier est une application web dédiée à la vente et à la location de biens immobiliers en ligne.
+                        Elle permet aux propriétaires et aux clients (acheteurs ou locataires) d’interagir directement, sans intermédiaire, 
+                        afin de simplifier les démarches et réduire les coûts liés aux commissions d’agences.
+                        La plateforme offre une recherche fluide, une gestion des annonces et 
+                        un système de rôles (visiteur, client, vendeur, administrateur) garantissant une expérience claire, 
+                        accessible et sécurisée pour tous les utilisateurs.
+
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL/Laragon</span>
+                        <span class="tech-tag">HTML/CSS/JS</span>
+                    </div>
+                    <a href="https://github.com/Hafsadm/Biens_Immobiliers.git" target="_blank" rel="noopener noreferrer" class="project-link">
+                        Voir sur GitHub
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M7 7h10v10"></path>
+                        </svg>
+                    </a>
+
+    
+
+                </div>
+
+
+                <div class="project-card project-featured">
+                    <div class="project-header">
+                        <h3 class="project-title">SaaS de gestion des Horaires</h3>
+                        <span class="project-badge">Stage de Fin d'Etude</span>
+                    </div>
+                    <p class="project-description">
+                        Développement d'une application SaaS permettant la gestion des horaires des entreprises. L'application offre des fonctionnalités de création, modification et suivi des plannings, avec une architecture MVC et une base de données relationnelle.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JS</span>
+
+
+
+
+
+                    </div>
+                    <a href="https://github.com/Hafsadm" target="_blank" rel="noopener noreferrer" class="project-link">
+                        Voir sur GitHub
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M7 7h10v10"></path>
+                        </svg>
+                    </a>
+
+                
+
+                </div>
+
+                  <div class="project-card project-featured">
+                    <div class="project-header">
+                        <h3 class="project-title">SmartLearn Analyser </h3>
+                        <span class="project-badge">Mini App</span>
+                    </div>
+                    <p class="project-description">
+
+                        SmartLearn Analyser est une application desktop développée en JavaFX dédiée à l’apprentissage intelligent.
+                        Elle permet d’importer des fichiers PDF ou TXT et de générer automatiquement des quiz interactifs 
+                        (QCM et Vrai/Faux) à l’aide de l’intelligence artificielle Google Gemini.
+                        L’application corrige les réponses, affiche les résultats et enregistre l’historique des performances de l’utilisateur.
+                        En cas d’indisponibilité de l’API Gemini, un système interne d’analyse du texte assure la génération des quiz.
+                        SmartLearn Analyser propose ainsi une solution simple et efficace pour l’auto-évaluation et le suivi pédagogique.
+
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">JavaFx</span>
+                        <span class="tech-tag">Architecture MVC</span>
+                    </div>
+                    <a href="https://github.com/Hafsadm" target="_blank" rel="noopener noreferrer" class="project-link">
+                        Voir sur GitHub
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M7 7h10v10"></path>
+                        </svg>
+                    </a>
+
+                     
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section section-experience">
+        <div class="container">
+            <h2 class="section-title">Expérience & Formation</h2>
+            
+            <div class="timeline">
+
+                            <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Stage – Domaine Limoune</h3>
+                        <p class="timeline-period">01\07\2024 - 30\07\2024</p>
+                     <ul class="timeline-details">
+                        <li>Stage d’initiation réalisé en mode hybride (présentiel et à distance)</li>
+                        <li>Découverte du fonctionnement général de l’entreprise et de son environnement professionnel</li>
+                        <li>Participation à des tâches simples et observation des processus de travail</li>
+                        <li>Développement des compétences en organisation, communication et autonomie</li>
+                    </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Stage – Custplace</h3>
+                        <p class="timeline-period">15\04\2025 - 15\06\2025</p>
+                        <ul class="timeline-details">
+                            <li>Participation à des tâches de développement</li>
+                            <li>Découverte de l'environnement professionnel</li>
+                            <li>Travail en équipe et respect des délaisTout au long les deux mois</li>
+                            <li>Application des connaissances théoriques en pratique</li>
+                        </ul>
+                    </div>
+                </div>
+
+         
+
+                <!-- Formation Design -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Formation - Graphic Design UX/UI </h3>
+                        <p class="timeline-period">1 semaine </p>
+                        <p>Orange Digital Centre / Formation présentiel  </p>
+                    </div>
+                </div>
+
+                <!-- Formation EST -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Formation DUT - Génie Informatique</h3>
+                        <p class="timeline-period">Terminer</p>
+                        <p>EST (École Supérieure de Technologie à Agadir)</p>
+                    </div>
+                </div>
+
+
+                 <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Formation DCI - Génie Logiciel</h3>
+                        <p class="timeline-period">En Cours</p>
+                        <p>ENSIASD ( École Nationale Supérieure d'Intelligence Artificielle et Science des Données )</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="section section-cta">
+        <div class="container">
+            <h2 class="section-title">À la recherche d'une opportunité</h2>
+            <p class="cta-text">
+                Je suis actuellement à la recherche d'un stage obligatoire ouvert dans le domaine du génie logiciel. N'hésitez pas à me contacter pour toute opportunité.
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Me contacter</a>
+                <a href="https://github.com/Hafsadm" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    Voir mon GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section section-contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            
+            <div class="contact-content">
+                <p class="contact-intro">
+                    N'hésitez pas à me contacter pour toute question ou opportunité de collaboration.
+                </p>
+
+                <div class="contact-methods">
+                    <a href="mailto:hafsadoumissi2005@gmail.com" class="contact-card" aria-label="Envoyer un email">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <href>hafsadoumissi2005@gmail.com</href>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/Hafsadm" target="_blank" rel="noopener noreferrer" class="contact-card" aria-label="Visiter GitHub">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>GitHub</h4>
+                            <p>@Hafsadm</p>
+                        </div>
+                    </a>
+
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-card" aria-label="Visiter LinkedIn">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.731-2.004 1.438-.103.249-.13.597-.13.946v5.421h-3.554s.05-8.807 0-9.726h3.554v1.375c.427-.659 1.19-1.597 2.897-1.597 2.117 0 3.704 1.385 3.704 4.362v5.586zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.706 0-.955.768-1.703 1.959-1.703 1.188 0 1.913.748 1.938 1.703 0 .948-.75 1.706-1.982 1.706zm1.581 11.597H3.754V9.726h3.164v10.726zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p>Hafsa Doumissi</p>
+                        </div>
+                    </a>
+
+
+                  <a href="https://wa.me/212775670045"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="contact-card"
+                        aria-label="Contacter via WhatsApp">
+                            
+                            <div class="contact-icon">
+                                <!-- Icône WhatsApp -->
+                                <svg width="24" height="24" viewBox="0 0 32 32" fill="currentColor">
+                                    <path d="M16 0C7.164 0 0 6.94 0 15.5c0 2.73.75 5.29 2.05 7.53L0 32l9.23-2.87c2.16 1.18 4.65 1.87 6.77 1.87 8.84 0 16-6.94 16-15.5S24.84 0 16 0zm0 28.5c-1.97 0-4.32-.67-6.15-1.83l-.44-.27-5.48 1.7 1.74-5.18-.29-.5C4.15 20.37 3.5 17.97 3.5 15.5 3.5 8.87 9.19 3.5 16 3.5S28.5 8.87 28.5 15.5 22.81 28.5 16 28.5zm7.32-9.46c-.4-.2-2.34-1.15-2.7-1.28-.36-.13-.63-.2-.9.2-.27.4-1.03 1.28-1.26 1.54-.23.27-.47.3-.87.1-.4-.2-1.7-.62-3.24-1.98-1.2-1.07-2-2.4-2.24-2.8-.23-.4-.02-.62.18-.82.18-.18.4-.47.6-.7.2-.23.27-.4.4-.67.13-.27.07-.5-.03-.7-.1-.2-.9-2.16-1.23-2.96-.32-.77-.65-.67-.9-.68h-.77c-.27 0-.7.1-1.07.5-.37.4-1.4 1.37-1.4 3.33s1.44 3.86 1.64 4.13c.2.27 2.83 4.32 6.86 6.05.96.41 1.7.65 2.28.83.96.3 1.84.26 2.53.16.77-.12 2.34-.96 2.67-1.9.33-.93.33-1.73.23-1.9-.1-.17-.37-.27-.77-.47z"/>
+                                </svg>
+                            </div>
+
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <p>+212 775 670 045</p>
+                            </div>
+                        </a>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Hafsa Doumissi</p>
+        </div>
+    </footer>
+
+    
+     <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', hamburger.classList.contains('active'));
+        });
+
+        // Close menu when link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 20px rgba(124, 58, 237, 0.1)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
